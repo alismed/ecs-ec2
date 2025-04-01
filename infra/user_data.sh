@@ -17,5 +17,5 @@ sudo usermod -a -G docker ec2-user
 sudo systemctl --wait is-active docker
 
 # Run container
-sudo docker pull alismed/api-ec2:latest
-sudo docker run -p 80:8080 --restart always -d alismed/api-ec2:latest
+sudo docker pull alismed/ecs-ec2:latest
+sudo docker run -p 80:8080 --restart always -d alismed/ecs-ec2:latest

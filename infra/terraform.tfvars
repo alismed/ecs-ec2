@@ -8,7 +8,7 @@ vpc_id             = "vpc-0bbb42131ef1b5ad7"
 availability_zones = ["us-east-1a", "us-east-1c"]
 ami                = "ami-02a53b0d62d37a757"
 instance_type      = "t2.micro"
-key_name           = "terraform-keypair"
+key_name           = "ecs-keypair"
 destroy_infra      = true
 
 tags = {
