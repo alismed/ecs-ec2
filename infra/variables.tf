@@ -13,7 +13,7 @@ variable "profile" {
 variable "vpc_id" {
   type        = string
   default     = ""
-  description = "VPC ID"
+  description = "VPC ID where resources will be created"
 }
 
 variable "availability_zones" {
@@ -113,4 +113,28 @@ variable "instance_tags" {
     Name        = "ecs-instance"
     Environment = "dev"
   }
+}
+
+variable "cluster_name" {
+  description = "Name of the ECS cluster"
+  type        = string
+  default     = "my-cluster"
+}
+
+variable "container_image" {
+  description = "Container image for the ECS task"
+  type        = string
+  default     = "alismed/ecs-ec2:latest"
+}
+
+variable "subnet_ids" {
+  description = "List of subnet IDs for the ECS service"
+  type        = list(string)
+  default     = []
+}
+
+variable "service_name" {
+  description = "Name of the ECS service"
+  type        = string
+  default     = "my-service"
 }
