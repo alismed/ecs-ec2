@@ -155,6 +155,7 @@ mkdir -p .act
 # Create env file with credentials
 echo "AWS_ACCESS_KEY_ID=test" > .act/.env
 echo "AWS_SECRET_ACCESS_KEY=test" >> .act/.env
+echo "AWS_DEFAULT_REGION=us-east-1" >> .act/.env
 
 # Create pull request event simulation
 cat > .act/pull_request.json << EOF
