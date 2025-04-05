@@ -30,7 +30,7 @@ jobs:
         name: Read Variables
         run: |
           echo "region=$(grep 'region' infra/terraform.tfvars | cut -d'"' -f2)" >> $GITHUB_OUTPUT
-          echo "destroy_infra=$(grep 'destroy_infra' infra/terraform.tfvars | cut -d'=' -f2 | tr -d '[:space:]')" >> $GITHUB_OUTPUT
+          echo "destroy_infra=$(grep 'destroy_infra' infra/destroy.yaml | cut -d':' -f2 | tr -d '[:space:]')" >> $GITHUB_OUTPUT
           echo "cluster_name=$(grep 'cluster_name' infra/terraform.tfvars | cut -d'"' -f2)" >> $GITHUB_OUTPUT
           echo "service_name=$(grep 'service_name' infra/terraform.tfvars | cut -d'"' -f2)" >> $GITHUB_OUTPUT
           echo "container_image=$(grep 'container_image' infra/terraform.tfvars | cut -d'"' -f2)" >> $GITHUB_OUTPUT

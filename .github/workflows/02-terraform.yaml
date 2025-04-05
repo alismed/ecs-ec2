@@ -43,6 +43,7 @@ jobs:
         run: |
           cd infra
           terraform init
+          echo "destroy_infra: ${{ inputs.destroy_infra }}"
           if [ "${{ inputs.destroy_infra }}" == "true" ]; then
             terraform destroy -auto-approve
           else

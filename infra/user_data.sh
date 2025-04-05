@@ -21,7 +21,7 @@ EOF
 # Update system and install SSM agent (if not already installed)
 echo "[INFO] Updating system packages"
 yum update -y
-yum install -y ecs-init
+udo amazon-linux-extras install ecs -y
 
 # Starting ECS agent
 echo "[INFO] Starting ECS agent"
