@@ -11,7 +11,6 @@ subnet_ids      = ["subnet-0c56f6efbe2fec4de", "subnet-0ac630be8257bccc9"]
 instance_type   = "t2.micro"
 key_name        = "ecs-keypair"
 container_image = "alismed/ecs-ec2:latest"
-destroy_infra   = false
 
 tags = {
   Environment = "dev"
