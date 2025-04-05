@@ -26,8 +26,6 @@ jobs:
     permissions:
       pull-requests: write
     with:
-      security_group_id: ${{ needs.terraform.outputs.security_group_id }}
-      security_group_name: ${{ needs.terraform.outputs.security_group_name }}
       cluster_name: ${{ needs.terraform.outputs.cluster_name }}
       service_name: ${{ needs.terraform.outputs.service_name }}
       task_definition: ${{ needs.terraform.outputs.task_definition }}
