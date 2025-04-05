@@ -1,0 +1,37 @@
+name: "Validate Infrastructure Variables"
+
+on:
+  workflow_call:
+    outputs:
+      region:
+        value: ${{ jobs.validate.outputs.region }}
+      destroy_infra:
+        value: ${{ jobs.validate.outputs.destroy_infra }}
+      cluster_name:
+        value: ${{ jobs.validate.outputs.cluster_name }}
+      service_name:
+        value: ${{ jobs.validate.outputs.service_name }}
+
+jobs:
+  validate:
+    runs-on: ubuntu-22.04
+    container:
+      image: hashicorp/terraform:1.5
+    outputs:
+      region: ${{ steps.vars.outputs.region }}
+      destroy_infra: ${{ steps.vars.outputs.destroy_infra }}
+      cluster_name: ${{ steps.vars.outputs.cluster_name }}
+      service_name: ${{ steps.vars.outputs.service_name }}
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - id: vars
+        name: Read Variables
+        run: |
+          echo "region=$(grep 'region' infra/terraform.tfvars | cut -d'"' -f2)" >> $GITHUB_OUTPUT
+          echo "destroy_infra=$(grep 'destroy_infra' infra/terraform.tfvars | cut -d'=' -f2 | tr -d '[:space:]')" >> $GITHUB_OUTPUT
+          echo "cluster_name=$(grep 'cluster_name' infra/terraform.tfvars | cut -d'"' -f2)" >> $GITHUB_OUTPUT
+          echo "service_name=$(grep 'service_name' infra/terraform.tfvars | cut -d'"' -f2)" >> $GITHUB_OUTPUT
+          echo "container_image=$(grep 'container_image' infra/terraform.tfvars | cut -d'"' -f2)" >> $GITHUB_OUTPUT
+          echo "instance_type=$(grep 'instance_type' infra/terraform.tfvars | cut -d'"' -f2)" >> $GITHUB_OUTPUT
