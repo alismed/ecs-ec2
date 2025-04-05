@@ -43,3 +43,8 @@ terraform.rc
 
 # because using github actions
 *.hcl
+
+.env
+# Act testing files
+.act/*
+pull_request.json

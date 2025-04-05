@@ -16,12 +16,6 @@ variable "vpc_id" {
   description = "VPC ID where resources will be created"
 }
 
-variable "availability_zones" {
-  type        = list(string)
-  default     = []
-  description = "List of availability zones"
-}
-
 variable "ami" {
   type        = string
   default     = ""
@@ -67,7 +61,7 @@ variable "security_group_description" {
 variable "http_port" {
   description = "Port for HTTP traffic"
   type        = number
-  default     = 80
+  default     = 8080
 }
 
 variable "ssh_port" {
@@ -118,13 +112,13 @@ variable "instance_tags" {
 variable "cluster_name" {
   description = "Name of the ECS cluster"
   type        = string
-  default     = "my-cluster"
+  default     = ""
 }
 
 variable "container_image" {
   description = "Container image for the ECS task"
   type        = string
-  default     = "alismed/ecs-ec2:latest"
+  default     = ""
 }
 
 variable "subnet_ids" {
@@ -136,5 +130,5 @@ variable "subnet_ids" {
 variable "service_name" {
   description = "Name of the ECS service"
   type        = string
-  default     = "my-service"
+  default     = ""
 }
