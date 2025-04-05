@@ -28,7 +28,4 @@ jobs:
     with:
       cluster_name: ${{ needs.terraform.outputs.cluster_name }}
       service_name: ${{ needs.terraform.outputs.service_name }}
-      task_definition: ${{ needs.terraform.outputs.task_definition }}
-      autoscaling_group: ${{ needs.terraform.outputs.autoscaling_group }}
-      launch_template_id: ${{ needs.terraform.outputs.launch_template_id }}
       destroy_infra: ${{ needs.validate.outputs.destroy_infra }}
