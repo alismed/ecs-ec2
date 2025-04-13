@@ -25,9 +25,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const action = "${{ inputs.destroy_infra }}" === "true" ? "destruíd" : "criad";
+            const action = "${{ inputs.destroy_infra }}" === "true" ? "destruída" : "criada";
             const msg = [
-              `Queue ${{ inputs.cluster_name }} foi ${action}a com sucesso!`,
+              `Infra ${{ inputs.cluster_name }} foi ${action} com sucesso!`,
             ].join('\n');
             
             github.rest.issues.createComment({
